@@ -1,0 +1,83 @@
+.dashboard {
+  .ant-row:nth-child(2) {
+    display: flex;
+
+    .ant-col > div {
+      height: 100%;
+    }
+  }
+
+  .white_bg {
+    .long_text {
+      color: $BtnHover;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  }
+
+  .anticon-calendar {
+    margin-right: 5px;
+  }
+
+  .ant-picker-input > input:placeholder-shown {
+    height: 30px;
+  }
+}
+
+.card_profile {
+  border-radius: 6px;
+
+  .ant-card-meta-title {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .info_profile {
+    border: 1px dashed rgba(0, 0, 0, 0.125);
+    border-radius: 6px;
+    padding: 10px;
+    min-height: 82px;
+    min-width: 130px;
+  }
+
+  .ant-card-body {
+    padding: 20px;
+  }
+}
+
+.card_test {
+  .pd_20 {
+    padding: 25px 20px;
+  }
+
+  .ant-col:nth-child(1) > div {
+    background-color: $PinkColor;
+  }
+
+  .ant-col:nth-child(2) > div {
+    background-color: $BlueColor;
+  }
+
+  .ant-col:nth-child(3) > div {
+    background-color: $yellowColor;
+  }
+
+  .ant-col:nth-child(4) > div {
+    background-color: $GreenColor;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: black;
+    justify-content: space-between;
+
+    img {
+      opacity: 0.8;
+    }
+  }
+}
