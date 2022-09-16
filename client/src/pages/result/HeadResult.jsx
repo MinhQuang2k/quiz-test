@@ -7,12 +7,10 @@ function HeaderResult(props) {
       <Row justify="center" className="header_do_test">
         <Col xs={24} md={20} lg={20} xl={18} xxl={14}>
           <Row align="middle" gutter={[16, 16]} justify="space-around">
-            <Col>
-              <img src={require("../../assets/img/logo2.png")} alt="" />
-            </Col>
+            <Col>Quiz Test</Col>
             <Col flex={1}>
               <b>ten dot thi</b>
-              <p>NetKo Solution</p>
+              <p>Quiz Test</p>
             </Col>
             <Col>
               <Button>Thoát</Button>

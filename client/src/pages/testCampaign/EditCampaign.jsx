@@ -33,7 +33,7 @@ function EditCampaign(props) {
   }
 
   return (
-    <div className="preview">
+    <div className="preview container">
       <Row gutter={[24, 24]}>
         <Col span={24}>
           <Breadcrumb>

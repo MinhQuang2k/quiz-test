@@ -14,16 +14,18 @@ function LayoutWeb(props) {
         <PageLoading />
       ) : (
         <div className="layout--web">
-          <Row justify="center" className="page--header" gutter>
-            <Col xs={23} md={20} lg={20} xl={18} xxl={14}>
-              <HeaderPage />
+          <Row justify="center" className="page--header">
+            <Col>
+              <Row justify="center" className="container">
+                <Col span={24}>
+                  <HeaderPage />
+                </Col>
+              </Row>
             </Col>
           </Row>
-          <Row justify="center">
-            <Col xs={23} md={20} lg={20} xl={18} xxl={14}>
-              <div className="Content">
-                <Outlet />
-              </div>
+          <Row justify="center" className="content">
+            <Col>
+              <Outlet />
             </Col>
           </Row>
         </div>

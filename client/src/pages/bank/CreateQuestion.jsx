@@ -1,247 +1,316 @@
-import {
-  CodeOutlined,
-  FormOutlined,
-  HddOutlined,
-  RollbackOutlined,
-  SwapOutlined,
-  TeamOutlined,
-  UnorderedListOutlined,
-} from "@ant-design/icons";
 import { Breadcrumb, Button, Col, Input, Row, Switch, Tabs } from "antd";
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Matching from "../../components/container/Bank/Answer/Matching";
 import MultipleChoice from "../../components/container/Bank/Answer/MultipleChoice";
 import TrueFalse from "../../components/container/Bank/Answer/TrueFalse";
 import Question from "../../components/container/Bank/Question/Question";
+import Explain from "../../components/container/Bank/Explain/Explain";
+import ExplainEssay from "../../components/container/Bank/Explain/ExplainEssay";
 import QuestionFillingSpaces from "../../components/container/Bank/Question/QuestionFillingSpaces";
 import Setting from "../../components/container/Bank/Setting/Setting";
+import { addQuestion } from "../../slices/question";
+import { timeStringToNumber } from "../../utils/statistic";
+
+export const SettingContext = createContext();
+export const QuestionContext = createContext();
 
 function CreateQuestion() {
   const { t } = useTranslation("bank");
+  const location = useLocation();
   const [tabKey, setTabKey] = useState(1);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // setting
+  const [score, setScore] = useState(1);
+  const [tags, setTags] = useState({
+    _id: "62da711e40a9ca3c88be6da4",
+    name: "nhom 4",
+  });
+  const [timeLimit, setTimeLimit] = useState("02:03:03");
+  const [isAnswersShuff, setIsAnswersShuff] = useState(true);
+  const [hasMulCorrectAnswers, setHasMulCorrectAnswers] = useState(false);
+
+  // question
+  const [content, setContent] = useState("<p>noi dung</p>");
+
+  // explain answers
+  const [noteAnswer, setNoteAnswer] = useState(
+    "<p><strong>chu thich</strong></p>"
+  );
+
+  // answer type1
+  const [answerMul, setAnswerMul] = useState([
+    { id: "a", content: "<p>a</p>" },
+    { id: "b", content: "<p>b</p>" },
+    { id: "c", content: "<p>123</p>" },
+    { id: "d", content: "<p>323</p>" },
+    { id: "e", content: "<p>12</p>" },
+  ]);
+  const [corAnswersMul, setCorAnswersMul] = useState(["a"]);
+
+  // answer type2
+  const [answerTrueFalse, setAnswerTrueFalse] = useState([
+    { id: "a", content: "\u0110\u00fang" },
+    { id: "b", content: "Sai" },
+  ]);
+  const [corAnswersTrueFalse, setCorAnswersTrueFalse] = useState(["b"]);
+
+  // answer type3
+
+  const [matchingQuestion, setMatchingQuestion] = useState([
+    { id: 1, content: "<p>1</p>" },
+    { id: 2, content: "<p>2</p>" },
+    { id: 3, content: "<p>f</p>" },
+  ]);
+  const [matchingAnswer, setMatchingAnswer] = useState([
+    { id: "a", content: "<p>1</p>" },
+    { id: "b", content: "<p>2</p>" },
+  ]);
+  const [corMatchingAnswer, setCorMatchingAnswer] = useState({
+    1: ["a"],
+    2: ["b"],
+    3: ["a"],
+  });
+
+  // answer type 4
+  const [isFileRequired, setIsFileRequired] = useState(false);
+
+  // answer type 5
+  const [fillBlankCorAnswer, setFillBlankCorAnswer] = useState([
+    { key: 1, content: ["son"] },
+    { key: 2, content: ["Nghia me"] },
+  ]);
 
   const onChange = (key) => {
     console.log(key);
     setTabKey(key);
   };
 
-  const location = useLocation();
-  console.log(location.state.update);
-
-  const onChangeSwich = (checked) => {
-    // console.log(`switch to ${checked}`);
+  const handleCreateQuestion = () => {
+    if (Number(tabKey) === 1) {
+      dispatch(
+        addQuestion({
+          content: content,
+          type: tabKey,
+          answers: answerMul,
+          correct_answers: corAnswersMul,
+          score: score,
+          tags: tags._id,
+          has_mul_correct_answers: hasMulCorrectAnswers,
+          is_answers_shufflable: isAnswersShuff,
+          time_limit: timeStringToNumber(timeLimit),
+          note_answer: noteAnswer,
+        })
+      );
+    } else if (Number(tabKey) === 2) {
+      dispatch(
+        addQuestion({
+          content: content,
+          type: tabKey,
+          answers: answerTrueFalse,
+          correct_answers: corAnswersTrueFalse,
+          score: score,
+          tags: tags._id,
+          is_answers_shufflable: isAnswersShuff,
+          time_limit: timeStringToNumber(timeLimit),
+          note_answer: noteAnswer,
+        })
+      );
+    } else if (Number(tabKey) === 3) {
+      dispatch(
+        addQuestion({
+          content: content,
+          type: tabKey,
+          matching_answers: {
+            questions: matchingQuestion,
+            answers: matchingAnswer,
+          },
+          matching_correct_answers: corMatchingAnswer,
+          score: score,
+          tags: tags._id,
+          time_limit: timeStringToNumber(timeLimit),
+          note_answer: noteAnswer,
+        })
+      );
+    } else if (Number(tabKey) === 4) {
+      dispatch(
+        addQuestion({
+          content: content,
+          type: tabKey,
+          is_file_required: isFileRequired,
+          score: score,
+          tags: tags._id,
+          time_limit: timeStringToNumber(timeLimit),
+          note_answer: noteAnswer,
+        })
+      );
+    } else if (Number(tabKey) === 5) {
+      dispatch(
+        addQuestion({
+          content: content,
+          type: tabKey,
+          fill_blank_correct_answers: fillBlankCorAnswer,
+          score: score,
+          tags: tags._id,
+          time_limit: timeStringToNumber(timeLimit),
+          note_answer: noteAnswer,
+        })
+      );
+    }
+    navigate("/bank", { replace: true });
   };
 
   return (
-    <div className="create_question">
-      <br />
-      <br />
-      <Row gutter={[24, 24]}>
-        <Col span={24} className="sticky">
-          <Row justify="center">
-            <Col xs={24} md={20} lg={20} xl={18} xxl={14}>
-              <Row gutter={[8, 8]} align="middle">
-                <Col flex={1}>
-                  <Breadcrumb>
-                    <Breadcrumb.Item>
-                      <Link to="/bank">
-                        {t("Question_bank", { ns: "bank" })}
-                      </Link>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
-                      {location.state.update
-                        ? t("Update", { ns: "bank" })
-                        : t("Create", { ns: "bank" })}
-                    </Breadcrumb.Item>
-                  </Breadcrumb>
-                </Col>
-                <Col>
-                  <Button type="primary">
-                    {location.state.update
-                      ? t("Update", { ns: "bank" })
-                      : t("Create", { ns: "bank" })}
-                  </Button>
-                </Col>
-                <Col>
-                  <Button>
-                    <Link to="/bank">{t("Back_to_Bank", { ns: "bank" })}</Link>
-                  </Button>
-                </Col>
-              </Row>
+    <>
+      <Row gutter={[8, 8]} justify="center" className="container-fluid sticky">
+        <Col>
+          <Row className="container">
+            <Col flex={1}>
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <Link to="/bank">{t("Question_bank", { ns: "bank" })}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  {location.state.update
+                    ? t("Update", { ns: "bank" })
+                    : t("Create", { ns: "bank" })}
+                </Breadcrumb.Item>
+              </Breadcrumb>
             </Col>
-          </Row>
-        </Col>
-        <Col span={24}>
-          <Row gutter={[24, 24]}>
-            <Col span={8}>
-              <Setting tabKey={tabKey} />
+            <Col>
+              <Button type="primary" onClick={() => handleCreateQuestion()}>
+                {location.state.update
+                  ? t("Update", { ns: "bank" })
+                  : t("Create", { ns: "bank" })}
+              </Button>
             </Col>
-            <Col span={16}>
-              <Row gutter={[16, 16]}>
-                <Col span={24}>
-                  <div className="white_bg pd_20 question_type">
-                    <h6>{t("Question_Type", { ns: "bank" })}</h6>
-                  </div>
-                </Col>
-                <Col span={24} className="choose_question">
-                  <Tabs defaultActiveKey="1" onChange={onChange}>
-                    <Tabs.TabPane
-                      tab={
-                        <>
-                          <UnorderedListOutlined />
-                          {t("Multiple_Choice", { ns: "bank" })}
-                        </>
-                      }
-                      key="1"
-                    >
-                      <Row gutter={[16, 16]} className="multiple_choice">
-                        <Question
-                          title={t("Enter_the_question", { ns: "bank" })}
-                        />
-
-                        <MultipleChoice />
-
-                        <Question
-                          title={t("Explain_answers", { ns: "bank" })}
-                          subTitle={t("Multiple_Choice", { ns: "bank" })}
-                        />
-                      </Row>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane
-                      tab={
-                        <>
-                          <SwapOutlined />
-                          {t("True_False", { ns: "bank" })}
-                        </>
-                      }
-                      key="2"
-                    >
-                      <Row gutter={[16, 16]}>
-                        <Question
-                          title={t("Enter_the_question", { ns: "bank" })}
-                        />
-
-                        <TrueFalse />
-
-                        <Question
-                          title={t("Explain_answers", { ns: "bank" })}
-                          subTitle={t("Multiple_Choice", { ns: "bank" })}
-                        />
-                      </Row>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane
-                      tab={
-                        <>
-                          <RollbackOutlined />
-                          {t("Matching", { ns: "bank" })}
-                        </>
-                      }
-                      key="3"
-                    >
-                      <Row gutter={[16, 16]} className="Matching">
-                        <Question
-                          title={t("Enter_the_question", { ns: "bank" })}
-                        />
-
-                        <Matching />
-
-                        <Question
-                          title={t("Explain_answers", { ns: "bank" })}
-                          subTitle={t("Multiple_Choice", { ns: "bank" })}
-                        />
-                      </Row>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane
-                      tab={
-                        <>
-                          <FormOutlined />
-                          {t("Essay", { ns: "bank" })}
-                        </>
-                      }
-                      key="4"
-                    >
-                      <Row gutter={[16, 16]} className="Essay">
-                        <Question
-                          title={t("Enter_the_question", { ns: "bank" })}
-                        />
-
-                        <Col span={24}>
-                          <div className="white_bg pd_20">
-                            <Row gutter={[8, 8]}>
-                              <Col span={24}>
-                                <h6>
-                                  {t("Enter_essay_question_info", {
-                                    ns: "bank",
-                                  })}
-                                </h6>
-                              </Col>
-
-                              <Col span={24}>
-                                <p className="font_weight_bold">
-                                  {t("Note", { ns: "bank" })}
-                                </p>
-                                <Input />
-                                <p className="text_mute text_small">
-                                  {t("Note_will_be_shown", { ns: "bank" })}
-                                </p>
-                              </Col>
-                              <Col span={24}>
-                                <Switch
-                                  defaultChecked
-                                  onChange={onChangeSwich}
-                                  size="small"
-                                />
-                                <span className="font_weight_bold">
-                                  {" "}
-                                  {t("File_required", { ns: "bank" })}
-                                </span>
-                                <p className="text_mute text_small">
-                                  {t("File_will_be_required", { ns: "bank" })}
-                                </p>
-                              </Col>
-                            </Row>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane
-                      tab={
-                        <>
-                          <FormOutlined />
-                          {t("Filling_blank_spaces", { ns: "bank" })}
-                        </>
-                      }
-                      key="7"
-                    >
-                      <Row gutter={[16, 16]}>
-                        <Col span={24}>
-                          <div className="white_bg pd_20 footer_question_type">
-                            <b>{t("To_make_space", { ns: "bank" })}</b>
-                            <br />
-                            <br />
-                            <p>Công cha như núi thái [%1%]</p>
-                            <br />
-                            <p>[%2%] như nước trong nguồn chảy ra</p>
-                          </div>
-                        </Col>
-
-                        <QuestionFillingSpaces />
-                        <Question
-                          title={t("Explain_answers", { ns: "bank" })}
-                          subTitle={t("Multiple_Choice", { ns: "bank" })}
-                        />
-                      </Row>
-                    </Tabs.TabPane>
-                  </Tabs>
-                </Col>
-              </Row>
+            <Col>
+              <Button>
+                <Link to="/bank">{t("Back_to_Bank", { ns: "bank" })}</Link>
+              </Button>
             </Col>
           </Row>
         </Col>
       </Row>
-    </div>
+      <Row justify="center" className="create_question">
+        <Col>
+          <Row className="container">
+            <Col span={8}>
+              <SettingContext.Provider
+                value={{
+                  score,
+                  setScore,
+                  tags,
+                  setTags,
+                  timeLimit,
+                  setTimeLimit,
+                  isAnswersShuff,
+                  setIsAnswersShuff,
+                  hasMulCorrectAnswers,
+                  setHasMulCorrectAnswers,
+                  tabKey,
+                }}
+              >
+                <Setting />
+              </SettingContext.Provider>
+            </Col>
+            <Col span={16}>
+              <QuestionContext.Provider
+                value={{
+                  content,
+                  setContent,
+                  noteAnswer,
+                  setNoteAnswer,
+                  answerMul,
+                  setAnswerMul,
+                  corAnswersMul,
+                  setCorAnswersMul,
+                  answerTrueFalse,
+                  setAnswerTrueFalse,
+                  corAnswersTrueFalse,
+                  setCorAnswersTrueFalse,
+                  matchingQuestion,
+                  setMatchingQuestion,
+                  matchingAnswer,
+                  setMatchingAnswer,
+                  corMatchingAnswer,
+                  setCorMatchingAnswer,
+                  isFileRequired,
+                  setIsFileRequired,
+                  fillBlankCorAnswer,
+                  setFillBlankCorAnswer,
+                }}
+              >
+                <Row gutter={[16, 16]}>
+                  <Col span={24}>
+                    <div className="white_bg pd_20 question_type">
+                      <h6>{t("Question_Type", { ns: "bank" })}</h6>
+                    </div>
+                  </Col>
+                  <Col span={24} className="choose_question">
+                    <Tabs defaultActiveKey="1" onChange={onChange}>
+                      <Tabs.TabPane
+                        tab={<>{t("Multiple_Choice", { ns: "bank" })}</>}
+                        key={1}
+                      >
+                        <Row gutter={[16, 16]} className="multiple_choice">
+                          <Question />
+                          <MultipleChoice />
+                          <Explain />
+                        </Row>
+                      </Tabs.TabPane>
+                      <Tabs.TabPane
+                        tab={<>{t("True_False", { ns: "bank" })}</>}
+                        key={2}
+                      >
+                        <Row gutter={[16, 16]}>
+                          <Question />
+                          <TrueFalse />
+                          <Explain />
+                        </Row>
+                      </Tabs.TabPane>
+                      <Tabs.TabPane
+                        tab={<>{t("Matching", { ns: "bank" })}</>}
+                        key={3}
+                      >
+                        <Row gutter={[16, 16]} className="Matching">
+                          <Question />
+                          <Matching />
+                          <Explain />
+                        </Row>
+                      </Tabs.TabPane>
+                      <Tabs.TabPane
+                        tab={<>{t("Essay", { ns: "bank" })}</>}
+                        key={4}
+                      >
+                        <Row gutter={[16, 16]} className="Essay">
+                          <Question />
+                          <ExplainEssay />
+                        </Row>
+                      </Tabs.TabPane>
+                      <Tabs.TabPane
+                        tab={<>{t("Filling_blank_spaces", { ns: "bank" })}</>}
+                        key={5}
+                      >
+                        <Row gutter={[16, 16]}>
+                          <QuestionFillingSpaces />
+                          <Explain />
+                        </Row>
+                      </Tabs.TabPane>
+                    </Tabs>
+                  </Col>
+                </Row>
+              </QuestionContext.Provider>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </>
   );
 }
 

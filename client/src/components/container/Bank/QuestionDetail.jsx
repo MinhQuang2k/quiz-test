@@ -1,56 +1,50 @@
-import { CheckCircleOutlined } from '@ant-design/icons';
-import { Divider } from 'antd';
-import React from 'react';
+import { Divider, Row, Col } from "antd";
+import React from "react";
+import MultipleChoice from "./Detail/Answer/MultipleChoice";
+import TrueFalse from "./Detail/Answer/TrueFalse";
+import Matching from "./Detail/Answer/Matching";
+import Essay from "./Detail/Answer/Essay";
+import FillingBlank from "./Detail/Answer/FillingBlank";
+import QuestionInfo from "./Detail/QuestionInfo";
 
 function QuestionDetail({ question }) {
   return (
-    <div className='question--detail'>
+    <div className="question-detail">
       <Divider />
-      <div className='detail'>
-        <div className='question--answer'>
-          <h3>Đáp án</h3>
-          <p>
-            <CheckCircleOutlined />
-            {'A)'}
-            {'1'}
-          </p>
-          <p>
-            <CheckCircleOutlined />
-            {'B)'}
-            {'2'}
-          </p>
-          <p>
-            <CheckCircleOutlined />
-            {'C)'}
-            {'3'}
-          </p>
-          <p>
-            <CheckCircleOutlined />
-            {'D)'}
-            {'4'}
-          </p>
-        </div>
-        <div className='question--info'>
-          <h3>Thông tin câu hỏi</h3>
-          <div>
-            <div className='info'>Kiểu câu hỏi</div>
-            <div className='info'>Đúng/Sai</div>
-          </div>
-          <div>
-            <div className='info'>Điểm</div>
-            <div className='info'>1</div>
-          </div>
-
-          <div>
-            <div className='info'>Ngày tạo</div>
-            <div className='info'>21/05/2022 14:34:05</div>
-          </div>
-          <div>
-            <div className='info'>Thời gian làm bài</div>
-            <div className='info'>Không giới hạn</div>
-          </div>
-        </div>
-      </div>
+      <Row justify="center">
+        <Col span={20}>
+          <Row>
+            {question.type == 1 && (
+              <Col span={12}>
+                <MultipleChoice question={question} />
+              </Col>
+            )}
+            {question.type == 2 && (
+              <Col span={12}>
+                <TrueFalse question={question} />
+              </Col>
+            )}
+            {/* {question.type == 3 && (
+              <Col span={12}>
+                <Matching question={question} />
+              </Col>
+            )}
+            {question.type == 4 && (
+              <Col span={12}>
+                <Essay question={question} />
+              </Col>
+            )} */}
+            {question.type == 5 && (
+              <Col span={12}>
+                <FillingBlank question={question} />
+              </Col>
+            )}
+            <Col span={12}>
+              <QuestionInfo />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>
   );
 }

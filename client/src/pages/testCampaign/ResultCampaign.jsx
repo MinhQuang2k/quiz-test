@@ -91,7 +91,7 @@ function ResultCampaign(props) {
   };
 
   return (
-    <div className="result_campaign">
+    <div className="result_campaign container">
       <Row gutter={[16, 16]}>
         <Col span={24}>
           <Breadcrumb>

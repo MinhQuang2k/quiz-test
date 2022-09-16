@@ -52,7 +52,7 @@ function CreateCampaign() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Row gutter={[24, 24]} className="create_campaign">
         <Col span={24}>
           <Breadcrumb>

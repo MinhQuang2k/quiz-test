@@ -11,20 +11,8 @@ const QuestionSchema = new Schema(
       type: Number,
       required: true,
     },
-    answers: [
-      {
-        key: {
-          type: String,
-          required: true,
-        },
-        content: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
-    note: {
-      type: String,
+    answers: {
+      type: Schema.Types.Mixed,
       default: null,
     },
     is_file_required: {
@@ -56,51 +44,27 @@ const QuestionSchema = new Schema(
       default: false,
     },
     matching_answers: {
-      questions: [
-        {
-          key: {
-            type: Number,
-            required: true,
-          },
-          content: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
-      answers: [
-        {
-          key: {
-            type: String,
-            required: true,
-          },
-          content: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
+      type: Schema.Types.Mixed,
+      default: null,
     },
     matching_correct_answers: {
-      type: Map,
-      of: Array,
+      type: Schema.Types.Mixed,
+      default: null,
     },
-    fill_blank_correct_answers: [
-      {
-        key: { type: Number, required: true },
-        content: { type: String, required: true },
-      },
-    ],
+    fill_blank_correct_answers: {
+      type: Schema.Types.Mixed,
+      default: null,
+    },
     note_answer: {
       type: String,
       default: null,
     },
-    user_id: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: "users",
-      required: true,
+      // required: true,
     },
-    question_group_id: {
+    tags: {
       type: Schema.Types.ObjectId,
       ref: "question_groups",
       required: true,

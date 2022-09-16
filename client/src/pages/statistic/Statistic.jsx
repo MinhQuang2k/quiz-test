@@ -1,34 +1,31 @@
-import { Menu, Row, Col } from 'antd';
-import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Menu, Row, Col } from "antd";
+import React from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Statistic(props) {
-  const { t } = useTranslation('statistic');
+  const { t } = useTranslation("statistic");
 
   const location = useLocation();
 
   return (
-    <div className='statistic'>
+    <div className="statistic container">
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <Menu
-            mode='horizontal'
-            selectedKeys={location.pathname}
-          >
-            <Menu.Item key='/statistic/campaigns'>
-              <Link to='/statistic/campaigns'>
-                {t('test_campaign', { ns: 'statistic' })}
+          <Menu mode="horizontal" selectedKeys={location.pathname}>
+            <Menu.Item key="/statistic/campaigns">
+              <Link to="/statistic/campaigns">
+                {t("test_campaign", { ns: "statistic" })}
               </Link>
             </Menu.Item>
-            <Menu.Item key='/statistic/tests'>
-              <Link to='/statistic/tests'>
-                {t('test', { ns: 'statistic' })}
+            <Menu.Item key="/statistic/tests">
+              <Link to="/statistic/tests">
+                {t("test", { ns: "statistic" })}
               </Link>
             </Menu.Item>
-            <Menu.Item key='/statistic/answer-sheets'>
-              <Link to='/statistic/answer-sheets'>
-                {t('candidates', { ns: 'statistic' })}
+            <Menu.Item key="/statistic/answer-sheets">
+              <Link to="/statistic/answer-sheets">
+                {t("candidates", { ns: "statistic" })}
               </Link>
             </Menu.Item>
           </Menu>

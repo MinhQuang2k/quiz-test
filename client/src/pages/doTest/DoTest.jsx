@@ -16,12 +16,8 @@ function DoTest(props) {
         <Col span={12}>
           <Row justify="center" align="middle" className="column">
             <Col>
-              <img
-                className="logo"
-                src={require("../../assets/img/logo2.png")}
-                alt=""
-              />
-              <span className="name_netko">NETKO-SOLUTION</span>
+              Quiz Test
+              <span className="name_quiz-test">Quiz Test</span>
             </Col>
 
             <Col>

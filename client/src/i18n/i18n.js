@@ -65,7 +65,7 @@ i18n
     resources,
     defaultNS: "common", // Set default namespace
     fallbackLng: "vi",
-    debug: true, // turn off log
+    debug: false, // turn off log
     interpolation: {
       escapeValue: false,
     },

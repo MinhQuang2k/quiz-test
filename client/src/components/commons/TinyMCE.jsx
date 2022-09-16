@@ -1,17 +1,29 @@
 import { Editor } from "@tinymce/tinymce-react";
-import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-function TinyMCE(props) {
+function TinyMCE({ editor, setEditor, type = "content" }) {
   const { t } = useTranslation("bank");
-  const editorRef = useRef(null);
-
+  const changeEditor = (value) => {
+    if (type === "answer")
+      setEditor((pre) => {
+        return pre.map((answer) => {
+          if (answer.id === editor.id) {
+            return { id: answer.id, content: value };
+          }
+          return answer;
+        });
+      });
+    else {
+      setEditor(value);
+    }
+  };
   return (
     <div>
       <Editor
+        initialValue={type === "answer" ? editor.content : editor}
+        onBlur={(e) => changeEditor(e.target.getContent())}
         apiKey="b3m4owtz9mxa6zl1otn948snen4m5np54rm3w5s6a5zny4kz"
         cloudChannel="5-stable"
-        onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
           statusbar: false,
           menubar: false,

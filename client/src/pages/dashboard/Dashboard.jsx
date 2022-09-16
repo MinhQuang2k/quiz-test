@@ -11,7 +11,7 @@ function Dashboard(props) {
   const user = {};
 
   return (
-    <div className="dashboard ">
+    <div className="dashboard container">
       <Row gutter={[24, 24]}>
         <Col span={24} className="card_test">
           <CardTest />

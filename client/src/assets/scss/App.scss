@@ -6,7 +6,6 @@
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     height: 55px;
-
     .ant-menu {
       line-height: 55px;
     }
@@ -26,9 +25,9 @@
     }
   }
 
-  .Content {
-    height: 100vh;
-    margin-top: 80px;
+  .content {
+    height: calc(100vh - 80px);
+    padding-top: 80px;
   }
 }
 

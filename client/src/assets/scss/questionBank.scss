@@ -27,15 +27,14 @@
       padding: 22px !important;
     }
 
-    .panel--header {
-      .question--number {
-        font-weight: 600;
+    .panel-header {
+      display: flex;
+      .panel-left {
+        width: 120px;
       }
-
-      .ant-divider {
-        margin: 0 10px;
-        border-color: rgb(230, 230, 230);
-        font-size: 40px !important;
+      .panel-content {
+        height: 25px;
+        overflow: hidden;
       }
     }
 
@@ -62,33 +61,23 @@
       color: red;
     }
 
-    .question--detail {
+    .question-detail {
       font-size: 14px;
+      .question-box {
+        width: 90%;
+      }
 
-      .detail {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-
-        .question--answer {
-          width: 35%;
-        }
-
-        .question--info {
-          width: 40%;
-
-          .info {
-            display: inline-block;
-            padding: 10px;
-            width: 50%;
-          }
-        }
+      .info {
+        display: inline-block;
+        padding: 10px;
+        width: 50%;
       }
     }
   }
 }
 
 .create_question {
+  margin-top: 3rem;
   .multiple_choice {
     .ant-checkbox-group {
       width: 100%;

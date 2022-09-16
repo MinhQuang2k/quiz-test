@@ -82,7 +82,7 @@ function HeaderPage(props) {
   return (
     <Row align="middle" wrap={false}>
       <Col flex={2}>
-        <Link to="/">Test Online</Link>
+        <Link to="/">Quiz Test</Link>
       </Col>
       <Col flex={4}>
         <Menu

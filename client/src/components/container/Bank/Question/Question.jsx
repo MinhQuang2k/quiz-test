@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import TinyMCE from "../../../commons/TinyMCE";
 import { Col, Row } from "antd";
+import { QuestionContext } from "../../../../pages/bank/CreateQuestion";
 
-function Question(props) {
+function Question() {
   const { t } = useTranslation("bank");
+  const { content, setContent } = useContext(QuestionContext);
 
   return (
     <>
       <Col span={24} className="question">
         <div className="white_bg pd_20">
           <Row gutter={[8, 8]}>
-            <h6>{props.title}</h6>
-            {props.subTitle && (
-              <Col span={24}>
-                <p> {t("Not_required", { ns: "bank" })}</p>
-              </Col>
-            )}
+            <h6>{t("Enter_the_question", { ns: "bank" })}</h6>
             <Col span={24}>
-              <TinyMCE />
+              <TinyMCE editor={content} setEditor={setContent} />
             </Col>
           </Row>
         </div>

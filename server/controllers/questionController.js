@@ -2,7 +2,7 @@ import { Question } from "../models/index.js";
 
 export const getAll = async (req, res) => {
   const user_id = "62d7d72a602584b9a6be2529";
-  let { keyword, page = 1, per_page = 10, group } = req.query;
+  let { keyword, page = 1, per_page = 10, tabs } = req.query;
 
   const limit = Number(per_page);
   const startIndex = Number(per_page) * (Number(page) - 1);
@@ -14,10 +14,11 @@ export const getAll = async (req, res) => {
       $options: "i",
     };
 
-  if (group) query.question_group_id = group;
+  if (tabs) query.tag_id = tabs;
 
   try {
     const questions = await Question.find(query)
+      .populate('tags')
       .sort("-updatedAt")
       .skip(startIndex)
       .limit(limit);
@@ -51,12 +52,10 @@ export const getById = async (req, res) => {
 export const create = async (req, res) => {
   const user_id = "62d7d72a602584b9a6be2529";
   try {
-    const newQuestion = new Question({
+    const newQuestion = await Question.create({
       user_id,
       ...req.body,
     });
-
-    await newQuestion.save();
 
     res
       .status(201)

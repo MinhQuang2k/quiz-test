@@ -63,9 +63,7 @@ function LoginForm(props) {
                   </Select.Option>
                 </Select>
               </Col>
-              <Col>
-                <img src={require("../../assets/img/logo2.png")} alt="Logo" />
-              </Col>
+              <Col>Quiz Test</Col>
               <Col span={24}>
                 <h3>{t("Login", { ns: "login" })}</h3>
               </Col>
