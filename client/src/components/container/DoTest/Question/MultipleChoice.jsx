@@ -19,15 +19,6 @@ function MultipleChoice({ data }) {
 
   return (
     <div>
-      <span>
-        CÂU HỎI {data.index}
-        <small>
-          {data?.has_mul_correct_answers
-            ? "(Chọn nhiều đáp án)"
-            : "(Chỉ chọn một đáp án)"}
-        </small>
-      </span>
-      <Divider style={{ marginTop: "10px", marginBottom: "4px" }} />
       {data.time_limit && data.time_limit > 0 && !isCountDown ? (
         <HideMultipleChoice data={data} handleStartAnswer={handleStartAnswer} />
       ) : (
@@ -79,7 +70,6 @@ function MultipleChoice({ data }) {
                         <div style={{ display: "flex" }}>
                           <div style={{ marginRight: "4px" }}>
                             <b>
-                              {" "}
                               {answer.id.toUpperCase()}
                               {")"}
                             </b>
@@ -103,7 +93,7 @@ function MultipleChoice({ data }) {
 function HideMultipleChoice({ data, handleStartAnswer }) {
   return (
     <div className="preview-question">
-      <Row gutter={[24, 24]} className="hide-question">
+      <Row gutter={[24, 24]} className="preview-question__hide">
         <Col span={24}>
           <div style={{ marginBottom: "10px" }}>
             Labore, laboriosam. Harum voluptatem provident, atque, nam inventore
@@ -132,12 +122,12 @@ function HideMultipleChoice({ data, handleStartAnswer }) {
           </Checkbox.Group>
         </Col>
       </Row>
-      <div className="preview-box">
-        <div className="preview-title">
+      <div className="preview-question__box">
+        <div className="preview-question__box__title">
           This question has a time limit to answer is 01, click start to view
           and answer the question
         </div>
-        <div className="preview-btn">
+        <div className="preview-question__box__btn">
           <Button
             type="primary"
             ghost

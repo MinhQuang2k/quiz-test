@@ -14,7 +14,7 @@ function TabCandidate() {
     <div className="answer_sheets">
       <Row gutter={[16, 16]} justify="center">
         <Col span={24}>
-          <div className="white_bg pd_20">
+          <div className="white-bg p-4">
             <AddFiilterOptions
               optionsSelected={optionsSelected}
               setOptionsSelected={setOptionsSelected}

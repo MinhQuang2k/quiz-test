@@ -29,16 +29,7 @@ function Matching({ data }) {
 
   return (
     <div>
-      <span>
-        CÂU HỎI {data.index}
-        <small>(Chỉ chọn một đáp án)</small>
-      </span>
-      <Divider style={{ marginTop: "10px", marginBottom: "4px" }} />
-
-      {/* {data.time_limit && data.time_limit > 0 ? (
-        <HideMatching data={data} />
-      ) : ( */}
-      <Row gutter={[24, 24]} className="questionMatching">
+      <Row gutter={[24, 24]} className="question-matching">
         <Col span={24}>
           <div
             style={{ marginBottom: "10px" }}
@@ -48,9 +39,9 @@ function Matching({ data }) {
             <Col className="questions" span={12}>
               {data?.matching_answers?.questions &&
                 data?.matching_answers?.questions.map((question) => (
-                  <div className="box-questions" key={question.id}>
-                    <div className="questions-item">
-                      <div className="item-questions">
+                  <div className="questions__box" key={question.id}>
+                    <div className="questions__box__item">
+                      <div className="questions__box__item__content">
                         <span>
                           <strong>{question.id}.</strong>
                         </span>
@@ -60,10 +51,10 @@ function Matching({ data }) {
                           }}
                         ></span>
                       </div>
-                      <div className="question-item-circle">
+                      <div className="questions__box__item__circle">
                         <div
                           id={`${data.index}-${question.id}`}
-                          className="icon-circle"
+                          className="questions__box__item__circle__icon"
                         ></div>
                       </div>
                     </div>
@@ -75,15 +66,15 @@ function Matching({ data }) {
                 data?.matching_answers?.answers
                   .sort(sortAnswers)
                   .map((answer) => (
-                    <div className="box-answers" key={answer.id}>
-                      <div className="answers-item">
-                        <div className="answers-item-circle">
+                    <div className="answers__box" key={answer.id}>
+                      <div className="answers__box__item">
+                        <div className="answers__box__item__circle">
                           <div
                             id={`${data.index}-${answer.id}`}
-                            className="icon-circle"
+                            className="answers__box__item__circle__icon"
                           ></div>
                         </div>
-                        <div className="item-answers">
+                        <div className="answers__box__item__content">
                           <span>
                             <strong>{answer.id.toUpperCase()}.</strong>
                           </span>
@@ -122,8 +113,8 @@ function Matching({ data }) {
           <div className="list-answer">
             {data?.matching_answers?.questions &&
               data?.matching_answers?.questions.map((question) => (
-                <div className="box-answer" key={question.id}>
-                  <div className="order-answer">
+                <div className="list-answer__box" key={question.id}>
+                  <div className="mr-2">
                     <strong>{question.id}.</strong>
                   </div>
                   <div>
@@ -153,7 +144,6 @@ function Matching({ data }) {
           </div>
         </Col>
       </Row>
-      {/* )} */}
     </div>
   );
 }
@@ -161,7 +151,10 @@ function Matching({ data }) {
 function HideMatching({ data }) {
   return (
     <div className="preview-question">
-      <Row gutter={[24, 24]} className="questionMatching hide-question">
+      <Row
+        gutter={[24, 24]}
+        className="question-matching preview-question__hide"
+      >
         <Col span={24}>
           <div style={{ marginBottom: "10px" }}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
@@ -171,16 +164,19 @@ function HideMatching({ data }) {
             <Col className="questions" span={12}>
               {data?.matching_answers?.questions &&
                 data?.matching_answers?.questions.map((question) => (
-                  <div className="box-questions" key={question.id}>
-                    <div className="questions-item">
-                      <div className="item-questions">
+                  <div className="questions__box" key={question.id}>
+                    <div className="questions__item">
+                      <div className="questions__item__content">
                         <span>
                           <strong>{question.id}.</strong>
                         </span>
                         <span> Lorem ipsum, dolor sit amet</span>
                       </div>
-                      <div className="question-item-circle">
-                        <div id={question.id} className="icon-circle"></div>
+                      <div className="questions__item__circle">
+                        <div
+                          id={question.id}
+                          className="questions__item__circle__icon"
+                        ></div>
                       </div>
                     </div>
                   </div>
@@ -191,12 +187,15 @@ function HideMatching({ data }) {
                 data?.matching_answers?.answers
                   .sort(sortAnswers)
                   .map((answer) => (
-                    <div className="box-answers" key={answer.id}>
-                      <div className="answers-item">
-                        <div className="answers-item-circle">
-                          <div id={answer.id} className="icon-circle"></div>
+                    <div className="answers__box" key={answer.id}>
+                      <div className="answers__box__item">
+                        <div className="answers__box__item__circle">
+                          <div
+                            id={answer.id}
+                            className="answers__box__item__circle__icon"
+                          ></div>
                         </div>
-                        <div className="item-answers">
+                        <div className="answers__box__item__content">
                           <span>
                             <strong>{answer.id.toUpperCase()}.</strong>
                           </span>
@@ -213,8 +212,8 @@ function HideMatching({ data }) {
           <div className="list-answer">
             {data?.matching_answers?.questions &&
               data?.matching_answers?.questions.map((question) => (
-                <div className="box-answer" key={question.id}>
-                  <div className="order-answer">
+                <div className="list-answer__box" key={question.id}>
+                  <div className="mr-2">
                     <strong>{question.id}.</strong>
                   </div>
                   <div>
@@ -230,12 +229,12 @@ function HideMatching({ data }) {
           </div>
         </Col>
       </Row>
-      <div className="preview-box">
-        <div className="preview-title">
+      <div className="preview-question__box">
+        <div className="preview-question__box__title">
           This question has a time limit to answer is 01:00:00, click start to
           view and answer the question
         </div>
-        <div className="preview-btn">
+        <div className="preview-question__box__btn">
           <Button type="primary" ghost className="btn-outline">
             Bắt đầu
           </Button>

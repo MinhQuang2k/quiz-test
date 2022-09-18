@@ -1,38 +1,37 @@
-import LayoutWeb from "../components/commons/LayoutWeb";
-import Dashboard from "../pages/dashboard/Dashboard";
-import TestCategory from "../pages/category/TestCategory";
+import HeaderDoTest from "../components/commons/HeaderDoTest";
 import LayoutComponent from "../components/commons/LayoutComponent";
-import Tests from "../pages/test/Tests";
-import TestEdit from "../pages/test/TestEdit";
-import TestResult from "../pages/test/TestResult";
-import ResultsStatistic from "../pages/testCampaign/DetailResultCampaign";
-import TestCampaigns from "../pages/testCampaign/TestCampaigns";
-import CreateCampaign from "../pages/testCampaign/CreateCampaign";
-import Preview from "../pages/testCampaign/EditCampaign";
-import ResultCampaign from "../pages/testCampaign/ResultCampaign";
-import QuestionStatistic from "../pages/testCampaign/QuestionStatistic";
-import Bank from "../pages/bank/Bank";
-import CreateQuestion from "../pages/bank/CreateQuestion";
-import Statistic from "../pages/statistic/Statistic";
-import TabTestCampaign from "../pages/statistic/TabTestCampaign";
-import TabCandidate from "../pages/statistic/TabCandidate";
-import TabTest from "../pages/statistic/TabTest";
-import ChangePassword from "../pages/account/ChangePassword";
+import LayoutWeb from "../components/commons/LayoutWeb";
 import Account from "../pages/account/Account";
 import AccountInfo from "../pages/account/AccountInfo";
-import CreateCertificate from "../pages/account/CreateCertificate";
-import ManageCertificate from "../pages/account/ManageCertificate";
-import DoTest from "../pages/doTest/DoTest";
-import JoinTest from "../pages/doTest/JoinTest";
-import InfoCollect from "../pages/doTest/InfoCollect";
-import HeaderDoTest from "../components/commons/HeaderDoTest";
-import Guide from "../pages/doTest/Guide";
-import ExamQuestions from "../pages/doTest/ExamQuestions";
-import HeaderResult from "../pages/result/HeadResult";
+import ChangePassword from "../pages/account/ChangePassword";
+import Auth from "../pages/auth/Auth";
+import ForgetPassword from "../pages/auth/ForgetPassword";
 import LoginForm from "../pages/auth/LoginForm";
 import RegisterForm from "../pages/auth/RegisterForm";
-import ForgetPassword from "../pages/auth/ForgetPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
+import Bank from "../pages/bank/Bank";
+import CreateQuestion from "../pages/bank/CreateQuestion";
+import TestCategory from "../pages/category/TestCategory";
+import Dashboard from "../pages/dashboard/Dashboard";
+import DoTest from "../pages/doTest/DoTest";
+import ExamQuestions from "../pages/doTest/ExamQuestions";
+import Guide from "../pages/doTest/Guide";
+import InfoCollect from "../pages/doTest/InfoCollect";
+import JoinTest from "../pages/doTest/JoinTest";
+import HeaderResult from "../pages/result/HeadResult";
+import Statistic from "../pages/statistic/Statistic";
+import TabCandidate from "../pages/statistic/TabCandidate";
+import TabTest from "../pages/statistic/TabTest";
+import TabTestCampaign from "../pages/statistic/TabTestCampaign";
+import TestEdit from "../pages/test/TestEdit";
+import TestResult from "../pages/test/TestResult";
+import Tests from "../pages/test/Tests";
+import CreateCampaign from "../pages/testCampaign/CreateCampaign";
+import ResultsStatistic from "../pages/testCampaign/DetailResultCampaign";
+import Preview from "../pages/testCampaign/EditCampaign";
+import QuestionStatistic from "../pages/testCampaign/QuestionStatistic";
+import ResultCampaign from "../pages/testCampaign/ResultCampaign";
+import TestCampaigns from "../pages/testCampaign/TestCampaigns";
 
 export const routes = [
   {
@@ -133,21 +132,10 @@ export const routes = [
             element: <AccountInfo />,
           },
           {
-            path: "/account/manage-certificates",
-            element: <ManageCertificate />,
-          },
-          {
             path: "/account/change-password",
             element: <ChangePassword />,
           },
-          {
-            path: "/account/integrated",
-          },
         ],
-      },
-      {
-        path: "/account/manage-certificates/create",
-        element: <CreateCertificate />,
       },
     ],
   },
@@ -179,19 +167,23 @@ export const routes = [
   },
   {
     path: "/login",
-    element: <LoginForm />,
+    element: <Auth />,
+    children: [{ index: true, element: <LoginForm /> }],
   },
   {
     path: "/register",
-    element: <RegisterForm />,
+    element: <Auth />,
+    children: [{ index: true, element: <RegisterForm /> }],
   },
   {
-    path: "/forget-password",
-    element: <ForgetPassword />,
+    path: "/forget-password/",
+    element: <Auth />,
+    children: [{ index: true, element: <ForgetPassword /> }],
   },
   {
-    path: "/reset-password",
-    element: <ResetPassword />,
+    path: "/reset-password/",
+    element: <Auth />,
+    children: [{ index: true, element: <ResetPassword /> }],
   },
 ];
 

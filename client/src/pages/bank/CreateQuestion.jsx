@@ -248,7 +248,7 @@ function CreateQuestion() {
               >
                 <Row gutter={[16, 16]}>
                   <Col span={24}>
-                    <div className="white_bg pd_20 question_type">
+                    <div className="white-bg p-4 question_type">
                       <h6>{t("Question_Type", { ns: "bank" })}</h6>
                     </div>
                   </Col>

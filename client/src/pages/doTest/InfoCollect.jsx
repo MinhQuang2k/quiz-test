@@ -2,7 +2,7 @@ import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function InfoCollect(props) {
+const InfoCollect = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -19,8 +19,8 @@ function InfoCollect(props) {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <Row gutter={[16, 0]}>
-          <Col span={12}>
+        <Row>
+          <Col span={24}>
             <Form.Item
               label="Mã định danh "
               name="id"
@@ -30,7 +30,7 @@ function InfoCollect(props) {
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Nhóm "
               name="Group"
@@ -40,7 +40,7 @@ function InfoCollect(props) {
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Họ và tên"
               name="name"
@@ -50,7 +50,7 @@ function InfoCollect(props) {
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Vị trí công việc"
               name="position"
@@ -60,30 +60,30 @@ function InfoCollect(props) {
             </Form.Item>
           </Col>
 
-          {/* <Col span={12}>
-                        <Form.Item
-                            label='Email'
-                            name="Email"
-                            rules={[{ required: true, message: 'Trường này là bắt buộc!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </Col> */}
+          {/* <Col span={24}>
+            <Form.Item
+              label="Email"
+              name="Email"
+              rules={[{ required: true, message: "Trường này là bắt buộc!" }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
 
-          {/* <Col span={12}>
-                        <Form.Item
-                            label='Phone'
-                            name="Số điện thoại"
-                            rules={[{ required: true, message: 'Trường này là bắt buộc!' }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </Col> */}
+          <Col span={24}>
+            <Form.Item
+              label="Phone"
+              name="Số điện thoại"
+              rules={[{ required: true, message: "Trường này là bắt buộc!" }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col> */}
 
           <Col span={24}>
             <Form.Item>
               <Link to="/do-test-in-single">
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" block>
                   Tiếp tục
                 </Button>
               </Link>
@@ -93,6 +93,6 @@ function InfoCollect(props) {
       </Form>
     </Col>
   );
-}
+};
 
 export default InfoCollect;

@@ -155,7 +155,7 @@ function AccessCodeLink(props) {
 
   return (
     <div>
-      <Collapse ghost className="white_bg" expandIconPosition="right">
+      <Collapse ghost className="white-bg" expandIconPosition="right">
         <Collapse.Panel
           header={t("Access_code_link", { ns: "testCampaign" })}
           key="1"

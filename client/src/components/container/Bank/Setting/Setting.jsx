@@ -24,7 +24,7 @@ function Setting() {
   };
 
   return (
-    <div className="white_bg pd_20">
+    <div className="white-bg p-4">
       <h6>{t("Setting", { ns: "bank" })}</h6>
       <Form
         layout="vertical"

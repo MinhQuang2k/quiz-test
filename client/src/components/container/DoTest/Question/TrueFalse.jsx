@@ -11,24 +11,6 @@ function TrueFalse({ data }) {
 
   return (
     <div>
-      <span>
-        CÂU HỎI {data.index}
-        <small>(Chỉ chọn một đáp án)</small>
-      </span>
-      <Divider style={{ marginTop: "10px", marginBottom: "4px" }} />
-      {/* {data.time_limit && data.time_limit > 0 ? (
-        <>
-          <HideTrueFalse data={data} setCountDown={setCountDown} />
-          {isCountDown && (
-            <CountDown
-              timeDate={Date.now() + 20 * 1000}
-              renderTime={renderTime}
-              onFinish={onFinish}
-              time={time}
-            />
-          )}
-        </>
-      ) : ( */}
       <Row gutter={[24, 24]}>
         <Col span={24}>
           <div
@@ -57,7 +39,6 @@ function TrueFalse({ data }) {
           </Radio.Group>
         </Col>
       </Row>
-      {/* )} */}
     </div>
   );
 }
@@ -65,7 +46,7 @@ function TrueFalse({ data }) {
 function HideTrueFalse({ data, setCountDown }) {
   return (
     <div className="preview-question">
-      <Row gutter={[24, 24]} className="hide-question">
+      <Row gutter={[24, 24]} className="preview-question__hide">
         <Col span={24}>
           <div style={{ marginBottom: "10px" }}>
             Labore, laboriosam. Harum voluptatem provident, atque, nam inventore
@@ -95,12 +76,12 @@ function HideTrueFalse({ data, setCountDown }) {
           </Radio.Group>
         </Col>
       </Row>
-      <div className="preview-box">
-        <div className="preview-title">
+      <div className="preview-question__box">
+        <div className="preview-question__box__title">
           This question has a time limit to answer is 01:00:00, click start to
           view and answer the question
         </div>
-        <div className="preview-btn">
+        <div className="preview-question__box__btn">
           <Button
             type="primary"
             ghost

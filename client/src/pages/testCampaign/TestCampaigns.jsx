@@ -114,7 +114,7 @@ function TestCampaigns(props) {
         </Col>
 
         <Col span={24}>
-          <div className="pd_15 white_bg">
+          <div className="p-3 white-bg">
             <Row gutter={[24, 24]} justify="space-between" align="middle">
               <Col flex={1}>
                 <h5>dot thi 1</h5>

@@ -88,7 +88,7 @@ function QuestionFillingSpaces(props) {
   return (
     <>
       <Col span={24}>
-        <div className="white_bg pd_20 ">
+        <div className="white-bg p-4 ">
           <Row gutter={[8, 8]}>
             <Col flex={1}>
               <h6>{t("Enter_the_question", { ns: "bank" })}</h6>
@@ -115,7 +115,7 @@ function QuestionFillingSpaces(props) {
                     <br />
                     <br />
                     <Col span={24}>
-                      <div className="white_bg pd_20 footer_question_type">
+                      <div className="white-bg p-4 footer_question_type">
                         <p>{t("To_make_space", { ns: "bank" })}</p>
                         <br />
                         <br />
@@ -136,7 +136,7 @@ function QuestionFillingSpaces(props) {
       </Col>
       {isAnswer && (
         <Col span={24}>
-          <div className="white_bg pd_20 ">
+          <div className="white-bg p-4 ">
             <Row gutter={[16, 16]}>
               <Col span={24}>
                 <h6>{t("Enter_essay_question_info", { ns: "bank" })}</h6>

@@ -105,7 +105,7 @@ function Matching(props) {
   };
   return (
     <Col span={24}>
-      <div className="white_bg pd_20">
+      <div className="white-bg p-4">
         <h6>{t("Enter_the_answer", { ns: "bank" })}</h6>
         <Row gutter={[16, 16]}>
           <Col span={24}>

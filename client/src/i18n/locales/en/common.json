@@ -9,7 +9,7 @@
     "number_doing_test_IT": "Number doing Test IT",
     "language": "VI",
     "real_language": "EN",
-    "img": "https://app.testcenter.vn/images/lang/vietnam_flag.jpeg",
+    "img": "./assets/img/US.png",
     "customer_code": "Customer code",
     "user_manual": "User manual",
     "account_manager": "Account manager",

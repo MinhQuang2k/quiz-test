@@ -74,7 +74,7 @@ function EditCampaign(props) {
             </Col>
 
             <Col span={9}>
-              <div className="white_bg pd_20">
+              <div className="white-bg p-4">
                 <Row gutter={[8, 8]} align="middle">
                   <Col flex={1}>
                     <h6>
@@ -82,9 +82,7 @@ function EditCampaign(props) {
                     </h6>
                   </Col>
                   <Col>
-                    <p>
-                      {t("Active", { ns: "testCampaign" })} 
-                    </p>
+                    <p>{t("Active", { ns: "testCampaign" })}</p>
                   </Col>
                   <Col span={24}>
                     <p>{t("LINK_TEST_CAMPAIGN", { ns: "testCampaign" })}</p>
@@ -123,7 +121,7 @@ function EditCampaign(props) {
               </div>
             </Col>
             <Col span={15}>
-              <div className="white_bg pd_20">
+              <div className="white-bg p-4">
                 <Row gutter={[16, 16]}>
                   <Col span={24}>
                     <h6>{t("Setting_Accessbility", { ns: "testCampaign" })}</h6>

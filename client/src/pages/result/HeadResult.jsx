@@ -3,7 +3,7 @@ import ResultView from "../../components/container/Result/ResultView";
 
 function HeaderResult(props) {
   return (
-    <div className="white_bg">
+    <div className="white-bg">
       <Row justify="center" className="header_do_test">
         <Col xs={24} md={20} lg={20} xl={18} xxl={14}>
           <Row align="middle" gutter={[16, 16]} justify="space-around">

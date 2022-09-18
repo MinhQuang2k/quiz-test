@@ -116,13 +116,13 @@ function ResultCampaign(props) {
                 </Row>
               </Col>
               <Col span={4}>
-                <div className="white_bg pd_20">
+                <div className="white-bg p-4">
                   {true ? (
                     <>
                       <Row gutter={[16, 16]} justify="center">
                         <Col>
                           {/* <img
-                            src={require("../../../../assets/img/no_chart.png")}
+                            src="./assets/img/no_chart.png"
                           /> */}
                         </Col>
                         <Col>
@@ -152,7 +152,7 @@ function ResultCampaign(props) {
                 </div>
               </Col>
               <Col span={8}>
-                <div className="white_bg pd_20">
+                <div className="white-bg p-4">
                   <Row gutter={[24, 24]}>
                     <Col span={12}>
                       <h6>total_participants</h6>
@@ -166,7 +166,7 @@ function ResultCampaign(props) {
                 </div>
               </Col>
               <Col span={4}>
-                <div className="white_bg ">
+                <div className="white-bg ">
                   <Pie
                     data={{
                       labels: [
@@ -191,7 +191,7 @@ function ResultCampaign(props) {
                   <>
                     <Row gutter={[16, 16]} justify="center">
                       <Col>
-                        <img src={require("../../assets/img/no_chart.png")} />
+                        <img src="./assets/img/no_chart.png" alt="" />
                       </Col>
                       <Col>
                         <p>
@@ -205,7 +205,7 @@ function ResultCampaign(props) {
                 </div>
               </Col>
               <Col span={8}>
-                <div className="white_bg pd_20">
+                <div className="white-bg p-4">
                   <Row gutter={[24, 24]}>
                     <Col span={12}>
                       <h6>total_true_question</h6>
@@ -240,7 +240,7 @@ function ResultCampaign(props) {
               </Col>
 
               <Col span={24}>
-                <div className="white_bg pd_20">
+                <div className="white-bg p-4">
                   <table>
                     <tbody>
                       <tr>

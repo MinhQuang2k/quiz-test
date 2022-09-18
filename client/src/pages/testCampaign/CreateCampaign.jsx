@@ -68,7 +68,7 @@ function CreateCampaign() {
         </Col>
 
         <Col span={24}>
-          <Steps current={current} className="pd_20 white_bg" type="navigation">
+          <Steps current={current} className="p-4 white-bg" type="navigation">
             {steps.map((item) => (
               <Step
                 key={item.title}

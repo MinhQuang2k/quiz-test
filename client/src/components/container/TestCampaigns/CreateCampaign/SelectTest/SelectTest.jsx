@@ -35,7 +35,7 @@ function SelectTest(props) {
 
   return (
     <>
-      <div className="pd_20 select_test white_bg">
+      <div className="p-4 select_test white-bg">
         <Row gutter={[8, 8]}>
           <Col flex={1}>
             <h6 className="font_weight_bold">

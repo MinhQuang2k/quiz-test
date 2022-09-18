@@ -14,7 +14,7 @@
     "user_manual": "Hướng dẫn sử dụng",
     "language": "EN",
     "real_language": "VI",
-    "img": "https://app.testcenter.vn/images/lang/uk_flag.png",
+    "img": "./assets/img/VN.png",
     "number_doing_test": "Số lượt thi"
   },
   "button": {

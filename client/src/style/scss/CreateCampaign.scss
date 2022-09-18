@@ -1,13 +1,13 @@
 .create_campaign {
-  .white_bg ul {
+  .white-bg ul {
     overflow: auto;
     overflow-x: hidden;
     max-height: 400px;
   }
 
   .select_test {
-    .white_bg li,
-    .white_bg ul,
+    .white-bg li,
+    .white-bg ul,
     .ant-radio-group,
     label {
       width: 100%;
@@ -19,7 +19,7 @@
     }
   }
 
-  .white_bg li {
+  .white-bg li {
     p {
       font-size: 1rem;
     }

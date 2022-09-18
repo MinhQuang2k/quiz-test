@@ -13,17 +13,9 @@ function LayoutWeb(props) {
       {loading ? (
         <PageLoading />
       ) : (
-        <div className="layout--web">
-          <Row justify="center" className="page--header">
-            <Col>
-              <Row justify="center" className="container">
-                <Col span={24}>
-                  <HeaderPage />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-          <Row justify="center" className="content">
+        <div className="layout-web">
+          <HeaderPage />
+          <Row justify="center" className="layout-web__content">
             <Col>
               <Outlet />
             </Col>

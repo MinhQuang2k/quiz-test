@@ -7,18 +7,6 @@
     }
   }
 
-  .white_bg {
-    .long_text {
-      color: $BtnHover;
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.2;
-    }
-  }
-
   .anticon-calendar {
     margin-right: 5px;
   }
@@ -28,32 +16,7 @@
   }
 }
 
-.card_profile {
-  border-radius: 6px;
-
-  .ant-card-meta-title {
-    font-weight: 700;
-    font-size: 20px;
-  }
-
-  .info_profile {
-    border: 1px dashed rgba(0, 0, 0, 0.125);
-    border-radius: 6px;
-    padding: 10px;
-    min-height: 82px;
-    min-width: 130px;
-  }
-
-  .ant-card-body {
-    padding: 20px;
-  }
-}
-
-.card_test {
-  .pd_20 {
-    padding: 25px 20px;
-  }
-
+.card-test {
   .ant-col:nth-child(1) > div {
     background-color: $PinkColor;
   }

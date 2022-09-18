@@ -1,4 +1,4 @@
-import { Col } from "antd";
+import { Col, Divider } from "antd";
 
 import Essay from "./Question/Essay";
 import FillingBlankSpace from "./Question/FillingBlankSpace";
@@ -11,17 +11,26 @@ function QuestionTest(props) {
   const showArrayQuestion = (question) => {
     if (question.type === 1) return <MultipleChoice data={question} />;
     if (question.type === 2) return <TrueFalse data={question} />;
-    if (question.type === 3) return <Essay data={question} />;
-    if (question.type === 8) return <Matching data={question} />;
-    if (question.type === 9) return <FillingBlankSpace data={question} />;
+    if (question.type === 3) return <Matching data={question} />;
+    if (question.type === 4) return <Essay data={question} />;
+    if (question.type === 5) return <FillingBlankSpace data={question} />;
   };
 
   return (
     <>
       {data &&
-        data.map((question) => (
+        data.map((question, index) => (
           <Col span={24} key={question.id}>
-            <div className="pd_20 exam question--exam_question">
+            <div className="exam exam__border question-box">
+              <span>
+                CÂU HỎI {index + 1}
+                <small>
+                  {question?.has_mul_correct_answers
+                    ? "(Chọn nhiều đáp án)"
+                    : "(Chỉ chọn một đáp án)"}
+                </small>
+              </span>
+              <Divider style={{ marginTop: "10px", marginBottom: "4px" }} />
               {showArrayQuestion(question)}
             </div>
           </Col>

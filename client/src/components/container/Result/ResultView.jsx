@@ -1,6 +1,5 @@
 import { Button, Col, Row, Progress, Divider } from "antd";
 import { RetweetOutlined } from "@ant-design/icons";
-import successful from "../../../assets/img/successful.png";
 import { useState } from "react";
 import Essay from "./Question/Essay";
 import FillingBlankSpace from "./Question/FillingBlankSpace";
@@ -25,7 +24,7 @@ const ResultView = () => {
   return (
     <Row justify="center" className="result-view">
       <Col span={24} className="content-center mt-5">
-        <img src={successful} />
+        <img src="./assets/img/successful.png" alt="" />
         <h1 className="text-success mt-1 size-3">HOÀN THÀNH BÀI KIỂM TRA</h1>
         <p className="mb-1">Cảm ơn csdca đã tham gia bài kiểm tra.</p>
         <p className="mb-1">

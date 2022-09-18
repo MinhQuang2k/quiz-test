@@ -84,7 +84,7 @@ function DetailResultCampaign() {
         <Col span={8}>
           <Row gutter={[16, 16]}>
             <Col span={24}>
-              <div className="white_bg pd_20">
+              <div className="white-bg p-4">
                 <h6> Ho va ten</h6>
                 <p>
                   <QrcodeOutlined /> ma dinh danh
@@ -164,7 +164,7 @@ function DetailResultCampaign() {
             </Col>
 
             <Col span={24}>
-              <div className="white_bg pd_20">
+              <div className="white-bg p-4">
                 <Row gutter={[8, 8]}>
                   <Col>
                     <h6>{t("timeline", { ns: "statistic" })}</h6>
@@ -209,7 +209,7 @@ function DetailResultCampaign() {
           </Row>
         </Col>
         <Col span={16}>
-          <div className="white_bg pd_20">
+          <div className="white-bg p-4">
             <Row>
               <Col span={24} className="box-head-result">
                 <h6>{t("test_detail", { ns: "statistic" })}</h6>

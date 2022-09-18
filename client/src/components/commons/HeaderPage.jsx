@@ -1,14 +1,5 @@
-import { UpOutlined, YoutubeFilled } from "@ant-design/icons";
-import {
-  BackTop,
-  Button,
-  Col,
-  Dropdown,
-  Menu,
-  Row,
-  Space,
-  Tooltip,
-} from "antd";
+import { UpOutlined } from "@ant-design/icons";
+import { Avatar, BackTop, Button, Card, Col, Dropdown, Menu, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -42,26 +33,6 @@ function HeaderPage(props) {
       items={[
         {
           label: (
-            <>
-              <p>user.name</p>
-              <p>user.email</p>
-              <p>{t("header.customer_code")}: user?.userId</p>
-            </>
-          ),
-          key: "0",
-        },
-        {
-          type: "divider",
-        },
-        {
-          label: <>{t("header.number_doing_test")}: 2</>,
-          key: "1",
-        },
-        {
-          type: "divider",
-        },
-        {
-          label: (
             <Link to="/account/profile">{t("header.account_manager")}</Link>
           ),
           key: "2",
@@ -69,6 +40,9 @@ function HeaderPage(props) {
         {
           label: <Link to="/account/profile">{t("header.profile_info")}</Link>,
           key: "3",
+        },
+        {
+          type: "divider",
         },
         {
           label: <a onClick={Logout}>{t("header.logout")}</a>,
@@ -80,11 +54,13 @@ function HeaderPage(props) {
   );
 
   return (
-    <Row align="middle" wrap={false}>
-      <Col flex={2}>
-        <Link to="/">Quiz Test</Link>
+    <Row align="middle" justify="space-between" className="header-page">
+      <Col span={4}>
+        <Link to="/">
+          <span className="logo logo__md mr-2">Quiz Test</span>
+        </Link>
       </Col>
-      <Col flex={4}>
+      <Col span={16}>
         <Menu
           mode="horizontal"
           selectedKeys={(() => {
@@ -125,32 +101,35 @@ function HeaderPage(props) {
           ]}
         />
       </Col>
-      <Col>
-        <Button type="link" onClick={() => handleClick(language)}>
-          {t("header.language")} <img src={t("header.img")} />
-        </Button>
-      </Col>
-      <Col>
+      <Col span={3} className="flex-end">
         <Dropdown overlay={menu} placement="bottomRight">
           <a onClick={(e) => e.preventDefault()}>
-            <Space>Me</Space>
+            <Card.Meta
+              className="avatar"
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+            />
           </a>
         </Dropdown>
       </Col>
-
+      <Col span={1} className="flex-end">
+        <Button
+          type="link"
+          onClick={() => handleClick(language)}
+          className="btn-space-none"
+        >
+          {t("header.language")}&nbsp;
+          {language === LANGUAGE_VI ? (
+            <img className="language" src="./assets/img/US.png" alt="" />
+          ) : (
+            <img className="language" src="./assets/img/VI.png" alt="" />
+          )}
+        </Button>
+      </Col>
       <BackTop>
         <div className="up">
           <UpOutlined />
         </div>
       </BackTop>
-
-      <div className="guideline-video">
-        <Tooltip placement="left" title={t("header.user_manual")}>
-          <a href="https://www.youtube.com">
-            <YoutubeFilled />
-          </a>
-        </Tooltip>
-      </div>
     </Row>
   );
 }
