@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Col, Input, Row, Switch, Tabs } from "antd";
+import { Breadcrumb, Button, Col, Input, Row, Switch, Space, Tabs } from "antd";
 import React, { useState, createContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
@@ -167,147 +167,134 @@ function CreateQuestion() {
 
   return (
     <>
-      <Row gutter={[8, 8]} justify="center" className="container-fluid sticky">
+      <Row className="container mb-5" align="middle" justify="space-between">
         <Col>
-          <Row className="container">
-            <Col flex={1}>
-              <Breadcrumb>
-                <Breadcrumb.Item>
-                  <Link to="/bank">{t("Question_bank", { ns: "bank" })}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  {location.state.update
-                    ? t("Update", { ns: "bank" })
-                    : t("Create", { ns: "bank" })}
-                </Breadcrumb.Item>
-              </Breadcrumb>
-            </Col>
-            <Col>
-              <Button type="primary" onClick={() => handleCreateQuestion()}>
-                {location.state.update
-                  ? t("Update", { ns: "bank" })
-                  : t("Create", { ns: "bank" })}
-              </Button>
-            </Col>
-            <Col>
-              <Button>
-                <Link to="/bank">{t("Back_to_Bank", { ns: "bank" })}</Link>
-              </Button>
-            </Col>
-          </Row>
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link to="/bank">{t("Question_bank", { ns: "bank" })}</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              {location.state.update
+                ? t("Update", { ns: "bank" })
+                : t("Create", { ns: "bank" })}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </Col>
+        <Col>
+          <Button type="primary" onClick={() => handleCreateQuestion()}>
+            {location.state.update
+              ? t("Update", { ns: "bank" })
+              : t("Create", { ns: "bank" })}
+          </Button>
+          <Button className="ml-2">
+            <Link to="/bank">{t("Back_to_Bank", { ns: "bank" })}</Link>
+          </Button>
         </Col>
       </Row>
-      <Row justify="center" className="create_question">
-        <Col>
-          <Row className="container">
-            <Col span={8}>
-              <SettingContext.Provider
-                value={{
-                  score,
-                  setScore,
-                  tags,
-                  setTags,
-                  timeLimit,
-                  setTimeLimit,
-                  isAnswersShuff,
-                  setIsAnswersShuff,
-                  hasMulCorrectAnswers,
-                  setHasMulCorrectAnswers,
-                  tabKey,
-                }}
-              >
-                <Setting />
-              </SettingContext.Provider>
-            </Col>
-            <Col span={16}>
-              <QuestionContext.Provider
-                value={{
-                  content,
-                  setContent,
-                  noteAnswer,
-                  setNoteAnswer,
-                  answerMul,
-                  setAnswerMul,
-                  corAnswersMul,
-                  setCorAnswersMul,
-                  answerTrueFalse,
-                  setAnswerTrueFalse,
-                  corAnswersTrueFalse,
-                  setCorAnswersTrueFalse,
-                  matchingQuestion,
-                  setMatchingQuestion,
-                  matchingAnswer,
-                  setMatchingAnswer,
-                  corMatchingAnswer,
-                  setCorMatchingAnswer,
-                  isFileRequired,
-                  setIsFileRequired,
-                  fillBlankCorAnswer,
-                  setFillBlankCorAnswer,
-                }}
-              >
-                <Row gutter={[16, 16]}>
-                  <Col span={24}>
-                    <div className="white-bg p-4 question_type">
-                      <h6>{t("Question_Type", { ns: "bank" })}</h6>
-                    </div>
-                  </Col>
-                  <Col span={24} className="choose_question">
-                    <Tabs defaultActiveKey="1" onChange={onChange}>
-                      <Tabs.TabPane
-                        tab={<>{t("Multiple_Choice", { ns: "bank" })}</>}
-                        key={1}
-                      >
-                        <Row gutter={[16, 16]} className="multiple_choice">
-                          <Question />
-                          <MultipleChoice />
-                          <Explain />
-                        </Row>
-                      </Tabs.TabPane>
-                      <Tabs.TabPane
-                        tab={<>{t("True_False", { ns: "bank" })}</>}
-                        key={2}
-                      >
-                        <Row gutter={[16, 16]}>
-                          <Question />
-                          <TrueFalse />
-                          <Explain />
-                        </Row>
-                      </Tabs.TabPane>
-                      <Tabs.TabPane
-                        tab={<>{t("Matching", { ns: "bank" })}</>}
-                        key={3}
-                      >
-                        <Row gutter={[16, 16]} className="Matching">
-                          <Question />
-                          <Matching />
-                          <Explain />
-                        </Row>
-                      </Tabs.TabPane>
-                      <Tabs.TabPane
-                        tab={<>{t("Essay", { ns: "bank" })}</>}
-                        key={4}
-                      >
-                        <Row gutter={[16, 16]} className="Essay">
-                          <Question />
-                          <ExplainEssay />
-                        </Row>
-                      </Tabs.TabPane>
-                      <Tabs.TabPane
-                        tab={<>{t("Filling_blank_spaces", { ns: "bank" })}</>}
-                        key={5}
-                      >
-                        <Row gutter={[16, 16]}>
-                          <QuestionFillingSpaces />
-                          <Explain />
-                        </Row>
-                      </Tabs.TabPane>
-                    </Tabs>
-                  </Col>
-                </Row>
-              </QuestionContext.Provider>
-            </Col>
-          </Row>
+      <Row className="create-question container mb-3">
+        <Col span={8} className="pr-2">
+          <SettingContext.Provider
+            value={{
+              score,
+              setScore,
+              tags,
+              setTags,
+              timeLimit,
+              setTimeLimit,
+              isAnswersShuff,
+              setIsAnswersShuff,
+              hasMulCorrectAnswers,
+              setHasMulCorrectAnswers,
+              tabKey,
+            }}
+          >
+            <Setting />
+          </SettingContext.Provider>
+        </Col>
+        <Col span={16} className="pl-2">
+          <QuestionContext.Provider
+            value={{
+              content,
+              setContent,
+              noteAnswer,
+              setNoteAnswer,
+              answerMul,
+              setAnswerMul,
+              corAnswersMul,
+              setCorAnswersMul,
+              answerTrueFalse,
+              setAnswerTrueFalse,
+              corAnswersTrueFalse,
+              setCorAnswersTrueFalse,
+              matchingQuestion,
+              setMatchingQuestion,
+              matchingAnswer,
+              setMatchingAnswer,
+              corMatchingAnswer,
+              setCorMatchingAnswer,
+              isFileRequired,
+              setIsFileRequired,
+              fillBlankCorAnswer,
+              setFillBlankCorAnswer,
+            }}
+          >
+            <Row gutter={[16, 16]}>
+              <Col span={24}>
+                <div className="white-bg p-4 question_type">
+                  <h6>{t("Question_Type", { ns: "bank" })}</h6>
+                </div>
+              </Col>
+              <Col span={24} className="choose_question">
+                <Tabs defaultActiveKey="1" onChange={onChange}>
+                  <Tabs.TabPane
+                    tab={<>{t("Multiple_Choice", { ns: "bank" })}</>}
+                    key={1}
+                  >
+                    <Row gutter={[16, 16]} className="multiple_choice">
+                      <Question />
+                      <MultipleChoice />
+                      <Explain />
+                    </Row>
+                  </Tabs.TabPane>
+                  <Tabs.TabPane
+                    tab={<>{t("True_False", { ns: "bank" })}</>}
+                    key={2}
+                  >
+                    <Row gutter={[16, 16]}>
+                      <Question />
+                      <TrueFalse />
+                      <Explain />
+                    </Row>
+                  </Tabs.TabPane>
+                  <Tabs.TabPane
+                    tab={<>{t("Matching", { ns: "bank" })}</>}
+                    key={3}
+                  >
+                    <Row gutter={[16, 16]} className="matching">
+                      <Question />
+                      <Matching />
+                      <Explain />
+                    </Row>
+                  </Tabs.TabPane>
+                  <Tabs.TabPane tab={<>{t("Essay", { ns: "bank" })}</>} key={4}>
+                    <Row gutter={[16, 16]} className="essay">
+                      <Question />
+                      <ExplainEssay />
+                    </Row>
+                  </Tabs.TabPane>
+                  <Tabs.TabPane
+                    tab={<>{t("Filling_blank_spaces", { ns: "bank" })}</>}
+                    key={5}
+                  >
+                    <Row gutter={[16, 16]}>
+                      <QuestionFillingSpaces />
+                      <Explain />
+                    </Row>
+                  </Tabs.TabPane>
+                </Tabs>
+              </Col>
+            </Row>
+          </QuestionContext.Provider>
         </Col>
       </Row>
     </>

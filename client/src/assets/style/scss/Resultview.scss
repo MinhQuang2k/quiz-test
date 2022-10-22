@@ -3,27 +3,6 @@
   .content-center {
     text-align: center;
   }
-  .my-1 {
-    margin: 1rem 0rem;
-  }
-  .mr-1 {
-    margin-right: 0.5rem;
-  }
-  .mb-1 {
-    margin-bottom: 0.5rem;
-  }
-  .mb-2 {
-    margin-bottom: 1rem;
-  }
-  .mt-5 {
-    margin-top: 4.5rem;
-  }
-  .mt-3 {
-    margin-top: 2rem;
-  }
-  .mt-1 {
-    margin-top: 1rem;
-  }
   .size-3 {
     font-size: 2rem;
   }
@@ -105,4 +84,7 @@
     display: flex;
     align-items: center;
   }
+}
+.result-view {
+  margin-top: 80px;
 }

@@ -1,5 +1,5 @@
 import { EditOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, Modal, Row, Tooltip } from "antd";
+import { Button, Col, Space, Input, Modal, Row, Tooltip } from "antd";
 import { useEffect } from "react";
 import { default as React, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -151,19 +151,21 @@ function QuestionFillingSpaces(props) {
                 </p>
               </Col>
               <Col span={24}>
-                {fillBlankCorAnswer.map((item, index) => (
-                  <Row key={item.key} align="middle">
-                    <Col span={2}>
-                      <b>{item.key}:</b>
-                    </Col>
-                    <Col span={22}>
-                      <Input
-                        value={item.content}
-                        onChange={(e) => handleChangeAnswers(e, item.key)}
-                      />
-                    </Col>
-                  </Row>
-                ))}
+                <Space direction="vertical" size="middle">
+                  {fillBlankCorAnswer.map((item, index) => (
+                    <Row key={item.key} align="middle">
+                      <Col span={2}>
+                        <b>{item.key}:</b>
+                      </Col>
+                      <Col span={22}>
+                        <Input
+                          value={item.content}
+                          onChange={(e) => handleChangeAnswers(e, item.key)}
+                        />
+                      </Col>
+                    </Row>
+                  ))}
+                </Space>
               </Col>
             </Row>
           </div>

@@ -27,7 +27,7 @@ function TestItem() {
             <Link to={"/test-campaigns"} className="link">
               {t("button.setting", { ns: "common" })}
             </Link>
-            <Link to={"/test-campaigns"} className="btn-link">
+            <Link to={"/tests/items.id/result"} className="btn-link">
               {t("button.result", { ns: "common" })}
             </Link>
           </div>

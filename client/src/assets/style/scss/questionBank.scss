@@ -76,8 +76,8 @@
   }
 }
 
-.create_question {
-  margin-top: 3rem;
+.create-question {
+  // margin-top: 3rem;
   .multiple_choice {
     .ant-checkbox-group {
       width: 100%;
@@ -103,9 +103,9 @@
   }
 
   .ant-tabs-tab {
-    border: 1px solid #000;
-    border-radius: 1000px;
-    padding: 0.4rem;
+    border: 2px solid $primary-color;
+    border-radius: 30px;
+    padding: 0.5rem;
     margin: 5px;
   }
 
@@ -158,7 +158,7 @@
     }
   }
 
-  .Matching {
+  .matching {
     .ant-radio-group {
       width: 100%;
     }
@@ -186,7 +186,7 @@
     }
   }
 
-  .Essay {
+  .essay {
     .font_weight_bold {
       font-size: 14px;
     }
@@ -209,4 +209,10 @@
 
 .ant-modal-content .ant-upload-select-text {
   width: 100%;
+}
+
+.true-false {
+  .ant-radio-group {
+    display: inline;
+  }
 }

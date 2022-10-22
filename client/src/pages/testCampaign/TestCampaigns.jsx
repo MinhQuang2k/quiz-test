@@ -75,11 +75,6 @@ function TestCampaigns(props) {
               <h6>{t("test_campaign", { ns: "testCampaign" })}</h6>
             </Col>
             <Col>
-              <Button type="primary" icon={<FileAddFilled />} size="large">
-                {t("Import_essays_score_from_file", { ns: "testCampaign" })}
-              </Button>
-            </Col>
-            <Col>
               <Link to="create">
                 <Button type="primary" icon={<PlusCircleFilled />} size="large">
                   {t("Create_test_campaign", { ns: "testCampaign" })}

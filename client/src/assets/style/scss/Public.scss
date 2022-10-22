@@ -293,7 +293,7 @@ h4 {
   font-size: 14px;
   font-weight: 700;
   color: #2c4a9f;
-  background-color: #e9f1ff;
+  background-color: #c3d9ff;
   border-color: #e9f1ff;
   // text-transform: capitalize;
 }
@@ -301,7 +301,7 @@ h4 {
 .ant-btn:focus,
 .ant-btn:hover {
   color: #212529;
-  background-color: #c3d9ff;
+  background-color: #c3d9ff99;
   border-color: #b6d1ff;
 }
 
@@ -433,15 +433,13 @@ h4 {
 
 .sticky {
   position: fixed;
-  top: 55px;
-  right: 0;
+  bottom: 25px;
   left: 0;
-  padding: 10px 0;
   background: #fff;
   border-bottom: 1px solid #d3d5d7;
-  border-top: 1px solid #d3d5d7;
-  z-index: 999;
-
+  // border-top: 1px solid #d3d5d7;
+  z-index: 88;
+  height: 55px;
   .ant-btn {
     min-height: 40px;
     padding: 4px 15px;

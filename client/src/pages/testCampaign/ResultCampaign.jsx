@@ -57,20 +57,20 @@ function ResultCampaign(props) {
   };
 
   const showEvaluate = (items) => {
-    if (!items.endAt) return "";
-    if (items.is_grading_it_questions)
-      return (
-        <span className="need_grade">
-          {t("need_grade", { ns: "testCampaign" })}
-        </span>
-      );
-    if (items.is_passed)
-      return (
-        <span className="pass">{t("passed", { ns: "testCampaign" })}</span>
-      );
-    return (
-      <span className="not_pass">{t("not_pass", { ns: "testCampaign" })}</span>
-    );
+    // if (!items.endAt) return "";
+    // if (items.is_grading_it_questions)
+    //   return (
+    //     <span className="need_grade">
+    //       {t("need_grade", { ns: "testCampaign" })}
+    //     </span>
+    //   );
+    // if (items.is_passed)
+    //   return (
+    //     <span className="pass">{t("passed", { ns: "testCampaign" })}</span>
+    //   );
+    // return (
+    <span className="not_pass">{t("not_pass", { ns: "testCampaign" })}</span>;
+    // );
   };
 
   const showModalDelete = (id) => {
@@ -121,9 +121,10 @@ function ResultCampaign(props) {
                     <>
                       <Row gutter={[16, 16]} justify="center">
                         <Col>
-                          {/* <img
-                            src="./assets/img/no_chart.png"
-                          /> */}
+                          <img
+                            src={require("../../assets/img/no_chart.png")}
+                            alt=""
+                          />
                         </Col>
                         <Col>
                           <p>
@@ -155,11 +156,11 @@ function ResultCampaign(props) {
                 <div className="white-bg p-4">
                   <Row gutter={[24, 24]}>
                     <Col span={12}>
-                      <h6>total_participants</h6>
+                      <h6>50</h6>
                       <p>{t("Participants", { ns: "testCampaign" })}</p>
                     </Col>
                     <Col span={12}>
-                      <h6>total_unfinished_participants</h6>
+                      <h6>10</h6>
                       <p>{t("Havent_done_yet", { ns: "testCampaign" })}</p>
                     </Col>
                   </Row>
@@ -177,11 +178,7 @@ function ResultCampaign(props) {
                       datasets: [
                         {
                           label: "# of Votes",
-                          data: [
-                            // total_true_question,
-                            // total_fail_question,
-                            // total_empty_answer_question,
-                          ],
+                          data: [10, 5, 2],
                           ...styleChart,
                         },
                       ],
@@ -191,7 +188,10 @@ function ResultCampaign(props) {
                   <>
                     <Row gutter={[16, 16]} justify="center">
                       <Col>
-                        <img src="./assets/img/no_chart.png" alt="" />
+                        <img
+                          src={require("../../assets/img/no_chart.png")}
+                          alt=""
+                        />
                       </Col>
                       <Col>
                         <p>
@@ -208,15 +208,15 @@ function ResultCampaign(props) {
                 <div className="white-bg p-4">
                   <Row gutter={[24, 24]}>
                     <Col span={12}>
-                      <h6>total_true_question</h6>
+                      <h6>10</h6>
                       <p>{t("Correct_Answer", { ns: "testCampaign" })}</p>
                     </Col>
                     <Col span={12}>
-                      <h6>total_fail_question</h6>
+                      <h6>20</h6>
                       <p>{t("Wrong_Answer", { ns: "testCampaign" })}</p>
                     </Col>
                     <Col span={12}>
-                      <h6>total_empty_answer_question</h6>
+                      <h6>30</h6>
                       <p>{t("Empty_Answer", { ns: "testCampaign" })}</p>
                     </Col>
                     <Col span={12}>
@@ -254,43 +254,28 @@ function ResultCampaign(props) {
                         <th>{t("DURATION", { ns: "testCampaign" })}</th>
                         <th>{t("CREATED_AT", { ns: "testCampaign" })}</th>
                       </tr>
-                      {/* {test_campaign_result.length > 0 &&
-                        test_campaign_result.map((item) => (
-                          <tr key={item.id}>
-                            <td>{item.full_name}</td>
-                            <td>
-                              {item?.endAt ? (
-                                <>
-                                  {item.complete_percent}
-                                  <Progress
-                                    percent={item.complete_percent}
-                                    showInfo={false}
-                                  />
-                                </>
-                              ) : (
-                                "_"
-                              )}
-                            </td>
-                            <td>{item?.endAt ? item.score : "_"}</td>
-                            <td>{item?.endAt ? item.time_do_test : "_"}</td>
-                            <td>{formatTime(item.createdAt)}</td>
-                            <td>{showEvaluate(item)}</td>
-                            <td>
-                              {item?.endAt && (
-                                <Link to="/test-campaigns">
-                                  <Button>
-                                    {t("View_Detail", { ns: "testCampaign" })}
-                                  </Button>
-                                </Link>
-                              )}
-                            </td>
-                            <td>
-                              <span onClick={() => showModalDelete(item.id)}>
-                                <DeleteOutlined />
-                              </span>
-                            </td>
-                          </tr>
-                        ))} */}
+                      <tr>
+                        <td>pro name</td>
+                        <td>
+                          <Progress percent={40} showInfo={false} />
+                        </td>
+                        <td>20</td>
+                        <td>10:00:10</td>
+                        <td>11/02/2033</td>
+                        <td>{showEvaluate()}</td>
+                        <td>
+                          <Link to="/results/items.id">
+                            <Button>
+                              {t("View_Detail", { ns: "testCampaign" })}
+                            </Button>
+                          </Link>
+                        </td>
+                        <td>
+                          <span onClick={() => showModalDelete()}>
+                            <DeleteOutlined />
+                          </span>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                   {/* {test_campaign_result.length === 0 && !isLoading ? (

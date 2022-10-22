@@ -22,9 +22,9 @@ const showQuestion = (question, answers) => {
 const ResultView = () => {
   const [isShowAnswer, setIsShowAnswer] = useState(false);
   return (
-    <Row justify="center" className="result-view">
+    <Row justify="center" className="result-view container">
       <Col span={24} className="content-center mt-5">
-        <img src="./assets/img/successful.png" alt="" />
+        <img src={require("../../../assets/img/successful.png")} alt="" />
         <h1 className="text-success mt-1 size-3">HOÀN THÀNH BÀI KIỂM TRA</h1>
         <p className="mb-1">Cảm ơn csdca đã tham gia bài kiểm tra.</p>
         <p className="mb-1">

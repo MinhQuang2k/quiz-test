@@ -12,23 +12,36 @@ function Statistic(props) {
     <div className="statistic container">
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <Menu mode="horizontal" selectedKeys={location.pathname}>
-            <Menu.Item key="/statistic/campaigns">
-              <Link to="/statistic/campaigns">
-                {t("test_campaign", { ns: "statistic" })}
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="/statistic/tests">
-              <Link to="/statistic/tests">
-                {t("test", { ns: "statistic" })}
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="/statistic/answer-sheets">
-              <Link to="/statistic/answer-sheets">
-                {t("candidates", { ns: "statistic" })}
-              </Link>
-            </Menu.Item>
-          </Menu>
+          <Menu
+            mode="horizontal"
+            selectedKeys={location.pathname}
+            items={[
+              {
+                key: "/statistic/campaigns",
+                label: (
+                  <Link to="/statistic/campaigns">
+                    {t("test_campaign", { ns: "statistic" })}
+                  </Link>
+                ),
+              },
+              {
+                key: "/statistic/tests",
+                label: (
+                  <Link to="/statistic/tests">
+                    {t("test", { ns: "statistic" })}
+                  </Link>
+                ),
+              },
+              {
+                key: "/statistic/answer-sheets",
+                label: (
+                  <Link to="/statistic/answer-sheets">
+                    {t("candidates", { ns: "statistic" })}
+                  </Link>
+                ),
+              },
+            ]}
+          ></Menu>
         </Col>
         <Col span={24}>
           <Outlet />

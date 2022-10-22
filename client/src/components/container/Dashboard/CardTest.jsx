@@ -15,7 +15,10 @@ function CardTest() {
                 <p className="font_weight_bold">6</p>
                 <p>{t("test_campaigns", { ns: "dashboard" })}</p>
               </div>
-              <img src="./assets/img/test-campaigns.png" alt="" />
+              <img
+                src={require("../../../assets/img/test-campaigns.png")}
+                alt=""
+              />
             </Link>
           </div>
         </Col>
@@ -26,7 +29,7 @@ function CardTest() {
                 <p className="font_weight_bold">7</p>
                 <p>{t("tests", { ns: "dashboard" })}</p>
               </div>
-              <img src="./assets/img/test.png" alt="" />
+              <img src={require("../../../assets/img/test.png")} alt="" />
             </Link>
           </div>
         </Col>
@@ -37,7 +40,7 @@ function CardTest() {
                 <p className="font_weight_bold">50</p>
                 <p>{t("questions", { ns: "dashboard" })}</p>
               </div>
-              <img src="./assets/img/question.png" alt="" />
+              <img src={require("../../../assets/img/question.png")} alt="" />
             </Link>
           </div>
         </Col>
@@ -48,7 +51,10 @@ function CardTest() {
                 <p className="font_weight_bold">9</p>
                 <p>{t("test_categories", { ns: "dashboard" })}</p>
               </div>
-              <img src="./assets/img/group-question.png" alt="" />
+              <img
+                src={require("../../../assets/img/group-question.png")}
+                alt=""
+              />
             </Link>
           </div>
         </Col>

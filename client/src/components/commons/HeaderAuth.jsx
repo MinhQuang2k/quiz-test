@@ -40,9 +40,17 @@ const HeaderAuth = () => {
       >
         {t("header.language")}&nbsp;
         {language === LANGUAGE_VI ? (
-          <img className="language" src="./assets/img/US.png" alt="" />
+          <img
+            className="language"
+            src={require("../../assets/img/US.png")}
+            alt=""
+          />
         ) : (
-          <img className="language" src="./assets/img/VI.png" alt="" />
+          <img
+            className="language"
+            src={require("../../assets/img/VI.png")}
+            alt=""
+          />
         )}
       </Button>
     </div>

@@ -119,8 +119,8 @@ function Matching(props) {
             </Row>
           </Col>
           <Col span={12}>
-            {matchingQuestion.map((question) => (
-              <Space align="start" key={question.id}>
+            <Space direction="vertical" size="middle">
+              {matchingQuestion.map((question) => (
                 <Row align="middle" gutter={[8, 8]} wrap={false}>
                   <Col span={1}>
                     <b>{question.id}</b>
@@ -141,17 +141,17 @@ function Matching(props) {
                     </Button>
                   </Col>
                 </Row>
-              </Space>
-            ))}
-            <Col>
-              <Button onClick={handleAddQuestion}>
-                <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
-              </Button>
-            </Col>
+              ))}
+              <Col>
+                <Button onClick={handleAddQuestion}>
+                  <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
+                </Button>
+              </Col>
+            </Space>
           </Col>
           <Col span={12}>
-            {matchingAnswer.map((answer) => (
-              <Space align="start" key={answer.id}>
+            <Space direction="vertical" size="middle">
+              {matchingAnswer.map((answer) => (
                 <Row align="middle" gutter={[8, 8]} wrap={false}>
                   <Col span={1}>
                     <b>{answer.id.toUpperCase()}</b>
@@ -172,13 +172,13 @@ function Matching(props) {
                     </Button>
                   </Col>
                 </Row>
-              </Space>
-            ))}
-            <Col>
-              <Button onClick={handleAddAnswer}>
-                <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
-              </Button>
-            </Col>
+              ))}
+              <Col>
+                <Button onClick={handleAddAnswer}>
+                  <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
+                </Button>
+              </Col>
+            </Space>
           </Col>
           <Col span={24}>
             <h6>{t("Choose_the_answer", { ns: "bank" })}</h6>

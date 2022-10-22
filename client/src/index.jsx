@@ -2,7 +2,7 @@ import "antd/dist/antd.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./style/index.scss";
+import "./assets/style/index.scss";
 import "antd/dist/antd.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";

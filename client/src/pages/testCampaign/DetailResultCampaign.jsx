@@ -62,7 +62,7 @@ function DetailResultCampaign() {
   };
 
   return (
-    <div className="results_statistic">
+    <div className="results_statistic container">
       <Row gutter={[24, 24]}>
         <Col span={24}>
           <Breadcrumb>
@@ -158,50 +158,6 @@ function DetailResultCampaign() {
                   </Col>
                   <Col span={24}>
                     <ModalShareResult />
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-
-            <Col span={24}>
-              <div className="white-bg p-4">
-                <Row gutter={[8, 8]}>
-                  <Col>
-                    <h6>{t("timeline", { ns: "statistic" })}</h6>
-                  </Col>
-                  <Col span={24}>
-                    <Steps progressDot current={2} direction="vertical">
-                      <Step
-                        title={[
-                          <FieldTimeOutlined key={1} />,
-                          " 11-05-2022 17:02:26",
-                        ]}
-                        description={[
-                          <PlayCircleOutlined key={1} />,
-                          " Ứng viên bắt đầu làm bài thi",
-                        ]}
-                      />
-                      <Step
-                        title={[
-                          <FieldTimeOutlined key={1} />,
-                          " 11-05-2022 17:02:32",
-                        ]}
-                        description={[
-                          <FormOutlined key={1} />,
-                          " Ứng viên bắt đầu làm câu hỏi số 1.1",
-                        ]}
-                      />
-                      <Step
-                        title={[
-                          <FieldTimeOutlined key={1} />,
-                          " 11-05-2022 17:03:01",
-                        ]}
-                        description={[
-                          <CloseCircleOutlined key={1} />,
-                          " Ứng viên kết thúc bài thi",
-                        ]}
-                      />
-                    </Steps>
                   </Col>
                 </Row>
               </div>

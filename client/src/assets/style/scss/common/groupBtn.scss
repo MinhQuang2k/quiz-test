@@ -39,9 +39,13 @@
   align-items: center;
 }
 
-.mb-1 {
-  margin-bottom: 1rem;
-}
 .divider-m-none.ant-divider-horizontal {
   margin: 0px 0px;
+}
+
+.btn-dropdown {
+  .ant-btn-group {
+    border-radius: 4px;
+    overflow: hidden;
+  }
 }

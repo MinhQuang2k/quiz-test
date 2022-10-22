@@ -60,51 +60,45 @@ function MultipleChoice() {
     <Col span={24}>
       <div className="white-bg p-4">
         <h6>{t("Enter_the_answer", { ns: "bank" })}</h6>
-        <Row gutter={[0, 16]}>
+        <Space direction="vertical" size="middle">
           {answerMul.map((answer) => (
-            <Space align="start" key={answer.id}>
-              <Row gutter={[8, 8]} align="middle" wrap={false}>
-                <Col span={1}>
-                  <Checkbox
-                    checked={corAnswersMul.includes(answer.id)}
-                    onChange={() => handleCheckAnswer(answer)}
-                  />
-                </Col>
-                <Col span={1}>
-                  <b> {answer.id.toUpperCase()} </b>
-                </Col>
-                <Col span={21}>
-                  <TinyMCE
-                    editor={answer}
-                    setEditor={setAnswerMul}
-                    type="answer"
-                  />
-                </Col>
-                <Col span={1}>
-                  <Button
-                    type="link"
-                    onClick={() => handleDeleteAnswer(answer)}
-                  >
-                    <CloseCircleOutlined />
-                  </Button>
-                </Col>
-              </Row>
-            </Space>
+            <Row gutter={[8, 8]} align="middle" wrap={false}>
+              <Col span={1}>
+                <Checkbox
+                  checked={corAnswersMul.includes(answer.id)}
+                  onChange={() => handleCheckAnswer(answer)}
+                />
+              </Col>
+              <Col span={1}>
+                <b> {answer.id.toUpperCase()} </b>
+              </Col>
+              <Col span={21}>
+                <TinyMCE
+                  editor={answer}
+                  setEditor={setAnswerMul}
+                  type="answer"
+                />
+              </Col>
+              <Col span={1}>
+                <Button type="link" onClick={() => handleDeleteAnswer(answer)}>
+                  <CloseCircleOutlined />
+                </Button>
+              </Col>
+            </Row>
           ))}
-        </Row>
-        <Row>
-          <Col flex={1}>
-            <Button onClick={handleAddAnswer}>
-              <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
-            </Button>
-          </Col>
-
-          <Col>
-            (*) {t("Choose_the", { ns: "bank" })}{" "}
-            <b>{t("correct_answer", { ns: "bank" })}</b>{" "}
-            {t("by_clicking_on_the_checkbox", { ns: "bank" })}
-          </Col>
-        </Row>
+          <Row>
+            <Col flex={1}>
+              <Button onClick={handleAddAnswer}>
+                <PlusOutlined /> {t("Add_answer", { ns: "bank" })}
+              </Button>
+            </Col>
+            <Col>
+              (*) {t("Choose_the", { ns: "bank" })}{" "}
+              <b>{t("correct_answer", { ns: "bank" })}</b>{" "}
+              {t("by_clicking_on_the_checkbox", { ns: "bank" })}
+            </Col>
+          </Row>
+        </Space>
       </div>
     </Col>
   );

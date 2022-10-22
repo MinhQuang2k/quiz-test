@@ -32,10 +32,6 @@ function BankMenu({ onFilterChange }) {
           label: t("Import_spreadsheet", { ns: "bank" }),
           key: "2",
         },
-        {
-          label: t("Import_from_markdown_file", { ns: "bank" }),
-          key: "3",
-        },
       ]}
     />
   );
@@ -78,7 +74,7 @@ function BankMenu({ onFilterChange }) {
           <Option value="6">Cancelled</Option>
         </Select>
       </Col>
-      <Col span={8} className="item-right">
+      <Col span={8} className="item-right btn-dropdown">
         <Dropdown.Button
           className="create-question"
           size="large"
